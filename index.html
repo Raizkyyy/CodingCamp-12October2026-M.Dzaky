@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, aesthetically pleasing To-Do List Life Dashboard">
+    <title>Life Dashboard - Stay Organized & Focused</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        <!-- Header with Greeting -->
+        <header class="greeting-section">
+            <div class="greeting-widget">
+                <h1 class="greeting-text" id="greetingText">Good Morning, Friend</h1>
+                <button class="edit-name-btn" id="editNameBtn" aria-label="Edit your name">✏️</button>
+            </div>
+            <div class="datetime-display">
+                <div class="current-time" id="currentTime">00:00:00</div>
+                <div class="current-date" id="currentDate">Loading...</div>
+            </div>
+        </header>
+
+        <!-- Dashboard Grid Widgets -->
+        <section class="dashboard-grid">
+            <!-- Focus Timer Widget -->
+            <article class="widget timer-widget">
+                <h2 class="widget-title">
+                    <span class="widget-icon">⏱️</span>
+                    Focus Timer
+                </h2>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <p class="timer-label">Pomodoro Session</p>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startBtn">Start</button>
+                    <button class="btn btn-secondary" id="pauseBtn" disabled>Pause</button>
+                    <button class="btn btn-tertiary" id="resetBtn">Reset</button>
+                </div>
+            </article>
+
+            <!-- To-Do List Widget -->
+            <article class="widget todo-widget">
+                <h2 class="widget-title">
+                    <span class="widget-icon">✓</span>
+                    My Tasks
+                </h2>
+                <form class="todo-form" id="todoForm">
+                    <input 
+                        type="text" 
+                        class="todo-input" 
+                        id="todoInput" 
+                        placeholder="What needs to be done?" 
+                        maxlength="100"
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" class="btn btn-add">Add Task</button>
+                </form>
+                <ul class="todo-list" id="todoList">
+                    <!-- Tasks will be dynamically inserted here -->
+                </ul>
+                <div class="empty-state" id="todoEmptyState">
+                    <p>🎯 No tasks yet. Add one to get started!</p>
+                </div>
+            </article>
+
+            <!-- Quick Links Widget -->
+            <article class="widget links-widget">
+                <h2 class="widget-title">
+                    <span class="widget-icon">🔗</span>
+                    Quick Links
+                </h2>
+                <form class="links-form" id="linksForm">
+                    <input 
+                        type="text" 
+                        class="links-input" 
+                        id="linkName" 
+                        placeholder="Link name" 
+                        maxlength="30"
+                        autocomplete="off"
+                        required
+                    >
+                    <input 
+                        type="url" 
+                        class="links-input" 
+                        id="linkUrl" 
+                        placeholder="https://example.com" 
+                        autocomplete="off"
+                        required
+                    >
+                    <button type="submit" class="btn btn-add">Add Link</button>
+                </form>
+                <div class="links-container" id="linksContainer">
+                    <!-- Links will be dynamically inserted here -->
+                </div>
+                <div class="empty-state" id="linksEmptyState">
+                    <p>🌐 No quick links yet. Add your favorites!</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Custom Name Modal -->
+    <div class="modal-overlay" id="nameModal">
+        <div class="modal-content">
+            <h3 class="modal-title">What's your name?</h3>
+            <form id="nameForm">
+                <input 
+                    type="text" 
+                    class="modal-input" 
+                    id="nameInput" 
+                    placeholder="Enter your name" 
+                    maxlength="20"
+                    autocomplete="off"
+                    required
+                >
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" id="cancelNameBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
